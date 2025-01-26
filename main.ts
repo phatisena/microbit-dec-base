@@ -18,7 +18,7 @@ namespace decbase {
         } else {
             sti = anmt.charAt(0)
         }
-        if (dvl === null) return sti
+        if (dvl == null) return sti
         if (dvl <= 0) return sti
         if (sti.length > dvl) return sti
         if (dvl - sti.length > 0) {
