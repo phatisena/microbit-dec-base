@@ -14,7 +14,7 @@ namespace decbase {
             while (ani > 0) {
                 sti = "" + anmt.charAt(ani % bvl) + sti
                 ani = Math.floor(ani / bvl)
-                if (dvl != null) { if (sti.length >= dvl) { break; } }
+                if (dvl != null && dvl > 0) { if (sti.length >= dvl) { break; } }
             }
         } else {
             sti = anmt.charAt(0)
@@ -244,9 +244,9 @@ namespace decbase {
     //% block="show number $val as hex in $dvl digit to column: $col|| horizontal: $hzt"
     //% col.min=0 col.max=4 col.defl=0
     //% group="render screen"
-    //% weight=8
+    //% weight=4
     export function showHex(val:number,dvl:number,col:number,hzt:boolean=false) {
-        let ustr = decEncode(val,6,dvl)
+        let ustr = decEncode(val,16,dvl)
         let gled = Math.floor(256 / 16)
         for (let i = 0;i < ustr.length;i++) {
             const ix = i % 4
@@ -267,5 +267,59 @@ namespace decbase {
             }
         }
     }
+
+    //% blockid=decbase_showdecled
+    //% block="show number $val as dec in $dvl digit to column: $col|| horizontal: $hzt"
+    //% col.min=0 col.max=4 col.defl=0
+    //% group="render screen"
+    //% weight=6
+    export function showDec(val:number,dvl:number,col:number,hzt:boolean=false) {
+        let ustr = decEncode(val,10,dvl)
+        let gled = Math.floor(256 / 10)
+        for (let i = 0;i < ustr.length;i++) {
+            const ix = i % 4
+            const iy = Math.floor(i / 4)
+            const inv = (anmt.indexOf(ustr.charAt(i)) * gled) - 1
+            if (inv <= 0) {
+                if (hzt) {
+                    led.unplot(ix,iy)
+                } else {
+                    led.unplot(iy,ix)
+                }
+            } else if (inv > 0) {
+                if (hzt) {
+                    led.plotBrightness(ix,iy,inv)
+                } else {
+                    led.plotBrightness(ix,iy,inv)
+                }
+            }
+        }
+    }
+
+    //% block="show number $val as oct in $dvl digit to column: $col|| horizontal: $hzt"
+    //% col.min=0 col.max=4 col.defl=0
+    //% group="render screen"
+    //% weight=8
+    export function showOct(val:number,dvl:number,col:number,hzt:boolean=false) {
+        let ustr = decEncode(val,8,dvl)
+        let gled = Math.floor(256 / 8)
+        for (let i = 0;i < ustr.length;i++) {
+            const ix = i % 4
+            const iy = Math.floor(i / 4)
+            const inv = (anmt.indexOf(ustr.charAt(i)) * gled) - 1
+            if (inv <= 0) {
+                if (hzt) {
+                    led.unplot(ix,iy)
+                } else {
+                    led.unplot(iy,ix)
+                }
+            } else if (inv > 0) {
+                if (hzt) {
+                    led.plotBrightness(ix,iy,inv)
+                } else {
+                    led.plotBrightness(ix,iy,inv)
+                }
+            }
+        }
     
 }
