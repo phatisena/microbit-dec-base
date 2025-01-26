@@ -224,17 +224,18 @@ namespace decbase {
         for (let i = 0;i < ustr.length;i++) {
             const ix = i % 4
             const iy = Math.floor(i / 4)
-            if (ustr.charAt(i) == "0") {
+            if (ustr.charAt(i) != "1") {
                 if (hzt) {
-                    led.unplot(ix,iy)
+                    led.unplot(ix,iy+col)
                 } else {
-                    led.unplot(iy,ix)
+                    led.unplot(iy+col,ix)
                 }
-            } else if (ustr.charAt(i) == "1") {
+            }
+            if (ustr.charAt(i) == "1") {
                 if (hzt) {
-                    led.plot(ix,iy)
+                    led.plot(ix,iy+col)
                 } else {
-                    led.plot(ix,iy)
+                    led.plot(iy+col,ix)
                 }
             }
         }
@@ -254,15 +255,16 @@ namespace decbase {
             const inv = (anmt.indexOf(ustr.charAt(i)) * gled) - 1
             if (inv <= 0) {
                 if (hzt) {
-                    led.unplot(ix,iy)
+                    led.unplot(ix,iy+col)
                 } else {
-                    led.unplot(iy,ix)
+                    led.unplot(iy+col,ix)
                 }
-            } else if (inv > 0) {
+            }
+            if (inv > 0) {
                 if (hzt) {
-                    led.plotBrightness(ix,iy,inv)
+                    led.plotBrightness(ix,iy+col,inv)
                 } else {
-                    led.plotBrightness(ix,iy,inv)
+                    led.plotBrightness(iy+col,ix,inv)
                 }
             }
         }
@@ -282,15 +284,16 @@ namespace decbase {
             const inv = (anmt.indexOf(ustr.charAt(i)) * gled) - 1
             if (inv <= 0) {
                 if (hzt) {
-                    led.unplot(ix,iy)
+                    led.unplot(ix,iy+col)
                 } else {
-                    led.unplot(iy,ix)
+                    led.unplot(iy+col,ix)
                 }
-            } else if (inv > 0) {
+            }
+            if (inv > 0) {
                 if (hzt) {
-                    led.plotBrightness(ix,iy,inv)
+                    led.plotBrightness(ix,iy+col,inv)
                 } else {
-                    led.plotBrightness(ix,iy,inv)
+                    led.plotBrightness(iy+col,ix,inv)
                 }
             }
         }
@@ -310,15 +313,16 @@ namespace decbase {
             const inv = (anmt.indexOf(ustr.charAt(i)) * gled) - 1
             if (inv <= 0) {
                 if (hzt) {
-                    led.unplot(ix,iy)
+                    led.unplot(ix,iy+col)
                 } else {
-                    led.unplot(iy,ix)
+                    led.unplot(iy+col,ix)
                 }
-            } else if (inv > 0) {
+            }
+            if (inv > 0) {
                 if (hzt) {
-                    led.plotBrightness(ix,iy,inv)
+                    led.plotBrightness(ix,iy+col,inv)
                 } else {
-                    led.plotBrightness(ix,iy,inv)
+                    led.plotBrightness(iy+col,ix,inv)
                 }
             }
         }
