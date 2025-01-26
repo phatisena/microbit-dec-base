@@ -214,13 +214,23 @@ namespace decbase {
         return txt.charCodeAt(cidx)
     }
 
+    function joinArrStr(astr:string[]):string {
+        let ivstr = ""
+        for (let val of astr) {
+            ivstr = "" + ivstr + val
+        }
+        return ivstr
+    }
+
     //% blockid=decbase_showbinled
     //% block="show number as bin $val in digit: $dvl to column: $col|| horizontal: $hzt"
     //% col.min=0 col.max=4 col.defl=0
     //% group="render screen"
     //% weight=10
     export function showBin(val:number,dvl:number,col:number,hzt:boolean=false) {
-        let ustr = decEncode(val,2,dvl)
+        let istr = decEncode(val,2,dvl).split("")
+        istr.reverse()
+        let ustr = joinArrStr(istr)
         for (let i = 0;i < ustr.length;i++) {
             const ix = i % 5
             const iy = Math.floor(i / 5)
@@ -247,7 +257,9 @@ namespace decbase {
     //% group="render screen"
     //% weight=4
     export function showHex(val:number,dvl:number,col:number,hzt:boolean=false) {
-        let ustr = decEncode(val,16,dvl)
+        let istr = decEncode(val,16,dvl).split("")
+        istr.reverse()
+        let ustr = joinArrStr(istr)
         let gled = Math.floor(256 / 16)
         for (let i = 0;i < ustr.length;i++) {
             const ix = i % 5
@@ -276,7 +288,9 @@ namespace decbase {
     //% group="render screen"
     //% weight=6
     export function showDec(val:number,dvl:number,col:number,hzt:boolean=false) {
-        let ustr = decEncode(val,10,dvl)
+        let istr = decEncode(val,10,dvl).split("")
+        istr.reverse()
+        let ustr = joinArrStr(istr)
         let gled = Math.floor(256 / 10)
         for (let i = 0;i < ustr.length;i++) {
             const ix = i % 5
@@ -305,7 +319,9 @@ namespace decbase {
     //% group="render screen"
     //% weight=8
     export function showOct(val:number,dvl:number,col:number,hzt:boolean=false) {
-        let ustr = decEncode(val,8,dvl)
+        let istr = decEncode(val,8,dvl).split("")
+        istr.reverse()
+        let ustr = joinArrStr(istr)
         let gled = Math.floor(256 / 8)
         for (let i = 0;i < ustr.length;i++) {
             const ix = i % 5
