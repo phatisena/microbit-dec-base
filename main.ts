@@ -239,4 +239,31 @@ namespace decbase {
             }
         }
     }
+
+    //% blockid=decbase_showhexled
+    //% block="show number $val as hex in $dvl digit to column: $col|| horizontal: $hzt"
+    //% col.min=0 col.max=4 col.defl=0
+    //% group="render screen"
+    //% weight=10
+    export function showHex(val:number,dvl:number,col:number,hzt:boolean=false) {
+        let ustr = decEncode(val,6,dvl)
+        for (let i = 0;i < ustr.length;i++) {
+            const ix = i % 4
+            const iy = Math.floor(i / 4)
+            if (ustr.charAt(i) == "0") {
+                if (hzt) {
+                    led.unplot(ix,iy)
+                } else {
+                    led.unplot(iy,ix)
+                }
+            } else if (ustr.charAt(i) == "1") {
+                if (hzt) {
+                    led.plot(ix,iy)
+                } else {
+                    led.plot(ix,iy)
+                }
+            }
+        }
+    }
+    
 }
