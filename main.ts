@@ -14,6 +14,7 @@ namespace decbase {
             while (ani > 0) {
                 sti = "" + anmt.charAt(ani % bvl) + sti
                 ani = Math.floor(ani / bvl)
+                if (dvl != null) { if (sti.length >= dvl) { break; } }
             }
         } else {
             sti = anmt.charAt(0)
