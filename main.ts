@@ -215,15 +215,15 @@ namespace decbase {
     }
 
     //% blockid=decbase_showbinled
-    //% block="show number $val as bin in $dvl digit to column: $col|| horizontal: $hzt"
+    //% block="show number as bin $val in digit: $dvl to column: $col|| horizontal: $hzt"
     //% col.min=0 col.max=4 col.defl=0
     //% group="render screen"
     //% weight=10
     export function showBin(val:number,dvl:number,col:number,hzt:boolean=false) {
         let ustr = decEncode(val,2,dvl)
         for (let i = 0;i < ustr.length;i++) {
-            const ix = i % 4
-            const iy = Math.floor(i / 4)
+            const ix = i % 5
+            const iy = Math.floor(i / 5)
             if (ustr.charAt(i) != "1") {
                 if (hzt) {
                     led.unplot(ix,iy+col)
@@ -242,7 +242,7 @@ namespace decbase {
     }
 
     //% blockid=decbase_showhexled
-    //% block="show number $val as hex in $dvl digit to column: $col|| horizontal: $hzt"
+    //% block="show number as hex $val in digit: $dvl to column: $col|| horizontal: $hzt"
     //% col.min=0 col.max=4 col.defl=0
     //% group="render screen"
     //% weight=4
@@ -250,8 +250,8 @@ namespace decbase {
         let ustr = decEncode(val,16,dvl)
         let gled = Math.floor(256 / 16)
         for (let i = 0;i < ustr.length;i++) {
-            const ix = i % 4
-            const iy = Math.floor(i / 4)
+            const ix = i % 5
+            const iy = Math.floor(i / 5)
             const inv = (anmt.indexOf(ustr.charAt(i)) * gled) - 1
             if (inv <= 0) {
                 if (hzt) {
@@ -271,7 +271,7 @@ namespace decbase {
     }
 
     //% blockid=decbase_showdecled
-    //% block="show number $val as dec in $dvl digit to column: $col|| horizontal: $hzt"
+    //% block="show number as dec $val in digit: $dvl to column: $col|| horizontal: $hzt"
     //% col.min=0 col.max=4 col.defl=0
     //% group="render screen"
     //% weight=6
@@ -279,8 +279,8 @@ namespace decbase {
         let ustr = decEncode(val,10,dvl)
         let gled = Math.floor(256 / 10)
         for (let i = 0;i < ustr.length;i++) {
-            const ix = i % 4
-            const iy = Math.floor(i / 4)
+            const ix = i % 5
+            const iy = Math.floor(i / 5)
             const inv = (anmt.indexOf(ustr.charAt(i)) * gled) - 1
             if (inv <= 0) {
                 if (hzt) {
@@ -300,7 +300,7 @@ namespace decbase {
     }
 
     //% blockid=decbase_showoctled
-    //% block="show number $val as oct in $dvl digit to column: $col|| horizontal: $hzt"
+    //% block="show number as oct $val in digit: $dvl to column: $col|| horizontal: $hzt"
     //% col.min=0 col.max=4 col.defl=0
     //% group="render screen"
     //% weight=8
@@ -308,8 +308,8 @@ namespace decbase {
         let ustr = decEncode(val,8,dvl)
         let gled = Math.floor(256 / 8)
         for (let i = 0;i < ustr.length;i++) {
-            const ix = i % 4
-            const iy = Math.floor(i / 4)
+            const ix = i % 5
+            const iy = Math.floor(i / 5)
             const inv = (anmt.indexOf(ustr.charAt(i)) * gled) - 1
             if (inv <= 0) {
                 if (hzt) {
