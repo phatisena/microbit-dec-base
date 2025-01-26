@@ -296,6 +296,7 @@ namespace decbase {
         }
     }
 
+    //% blockid=decbase_showoctled
     //% block="show number $val as oct in $dvl digit to column: $col|| horizontal: $hzt"
     //% col.min=0 col.max=4 col.defl=0
     //% group="render screen"
@@ -321,5 +322,6 @@ namespace decbase {
                 }
             }
         }
+    }
     
 }
