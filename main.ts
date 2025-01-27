@@ -9,6 +9,7 @@ namespace decbase {
     //% group="main operation"
     //% weight=10
     export function decEncode(nvl: number, bvl: number, dvl: number=null): string {
+        bvl = Math.max(nvl,0), bvl = Math.min(nvl,anmt.length-1)
         let sti = "", ani = nvl
         if (ani > 0) {
             while (ani > 0) {
@@ -35,6 +36,7 @@ namespace decbase {
     //% group="main operation"
     //% weight=8
     export function decDecode(tvl: string, bvl: number): number {
+        bvl = Math.max(nvl,0), bvl = Math.min(nvl,anmt.length-1)
         let stl = tvl.length, vld = 0, nvl = 0, vix = 0
         for (let nix = stl - 1; nix >= 0; nix--) {
             vix = anmt.indexOf(tvl.charAt(nix))
