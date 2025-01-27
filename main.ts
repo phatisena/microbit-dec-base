@@ -150,7 +150,7 @@ namespace decbase {
         return decDecode(tvl, 2)
     }
 
-    //% blockid=decbase_oct2dec
+    //% blockid=decbase_hex2bin
     //% block="hex convert $tvl to bin|| in $dvl"
     //% group="binary operation"
     //% weight=8
@@ -158,7 +158,7 @@ namespace decbase {
         return decEncode(decDecode(tvl, 16), 2)
     }
 
-    //% blockid=decbase_oct2dec
+    //% blockid=decbase_oct2bin
     //% block="oct convert $tvl to bin|| in $dvl"
     //% group="binary operation"
     //% weight=6
@@ -166,7 +166,7 @@ namespace decbase {
         return decEncode(decDecode(tvl, 8), 2, dvl)
     }
 
-    //% blockid=decbase_oct2dec
+    //% blockid=decbase_bin2hex
     //% block="bin convert $tvl to hex|| in $dvl"
     //% group="hexadecimal operation"
     //% weight=8
@@ -174,7 +174,7 @@ namespace decbase {
         return decEncode(decDecode(tvl, 2), 16)
     }
 
-    //% blockid=decbase_oct2dec
+    //% blockid=decbase_oct2hex
     //% block="oct convert $tvl to hex|| in $dvl"
     //% group="hexadecimal operation"
     //% weight=6
@@ -182,7 +182,7 @@ namespace decbase {
         return decEncode(decDecode(tvl, 8), 16, dvl)
     }
 
-    //% blockid=decbase_oct2dec
+    //% blockid=decbase_bin2oct
     //% block="bin convert $tvl to oct|| in $dvl"
     //% group="octal operation"
     //% weight=8
@@ -190,7 +190,7 @@ namespace decbase {
         return decEncode(decDecode(tvl, 2), 8)
     }
 
-    //% blockid=decbase_oct2dec
+    //% blockid=decbase_hex2oct
     //% block="hex convert $tvl to oct|| in $dvl"
     //% group="octal operation"
     //% weight=6
